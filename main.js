@@ -26,10 +26,15 @@ function createWindow() {
     // const iconPath = `assets/${iconName}`
     // new Tray(iconPath)
     tray = new Tray('assets/iconTemplate.png')
-    
+
+
     // tray onClick event
     tray.on('click', () => {
-        mainWindow.show()
+        if (mainWindow.isVisible()) {
+            mainWindow.hide()
+        } else {
+            mainWindow.show()
+        }
     })
 
 }
