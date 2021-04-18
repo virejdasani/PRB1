@@ -1,0 +1,14 @@
+{
+  "name": "cadbury",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Virej Dasani",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^12.0.4"
+  }
+}
