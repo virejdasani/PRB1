@@ -2,8 +2,7 @@
 const {
     app,
     BrowserWindow,
-    Tray,
-    Menu
+    Tray
 } = require('electron')
 
 const path = require('path')
@@ -22,12 +21,15 @@ function createWindow() {
 
     mainWindow.loadFile('index.html')
 
+    if (app.dock) {
+        app.dock.hide()
+    }
+
     // To get different icons depending on the platform,first comment the new Tray line below, then do this:
     // const iconName = process.platform === win32 ? 'windowsIcon.png' : 'macIcon.png'
     // const iconPath = `assets/${iconName}`
     // new Tray(iconPath)
     tray = new Tray('assets/iconTemplate.png')
-
 
     // tray onClick event
     tray.on('click', () => {
@@ -39,10 +41,14 @@ function createWindow() {
         }
     })
 
+    tray.setToolTip('Cadbury')
+
     // This is when the window is not in focus
     mainWindow.on('blur', () => {
         mainWindow.hide()
     })
+
+    window.addEventListener('keyup', doSomething, true)
 
 }
 
