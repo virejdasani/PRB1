@@ -2,7 +2,8 @@
 const {
     app,
     BrowserWindow,
-    Tray
+    Tray,
+    Menu
 } = require('electron')
 
 const path = require('path')
@@ -36,26 +37,25 @@ function createWindow() {
         } else {
             mainWindow.show()
         }
-
-
     })
 
-    // This is to check is the window is in focus
-    function checkIfFocused() {
-        // If the window is in focus
-        if (mainWindow.isFocused()) {
-            // console.log('Focused')
-            // mainWindow.hide()
-        }
-        // If the window is not in focus
-        else {
-            mainWindow.hide()
-        }
-        // Check if window is in focus every 5 seconds
-        setTimeout(checkIfFocused, 5000)
-    }
-    // Initial function call
-    checkIfFocused()
+
+// This is to check is the window is in focus
+    // function checkIfFocused() {
+    //     // If the window is in focus
+    //     if (mainWindow.isFocused()) {
+    //         // console.log('Focused')
+    //         // mainWindow.hide()
+    //     }
+    //     // If the window is not in focus
+    //     else {
+    //         mainWindow.hide()
+    //     }
+    //     // Check if window is in focus every 5 seconds
+    //     setTimeout(checkIfFocused, 5000)
+    // }
+    // // Initial function call
+    // checkIfFocused()
 
 }
 
