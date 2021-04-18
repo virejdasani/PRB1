@@ -2,7 +2,8 @@
 const {
     app,
     BrowserWindow,
-    Tray
+    Tray,
+    globalShortcut
 } = require('electron')
 
 const path = require('path')
@@ -45,6 +46,7 @@ function createWindow() {
         }
     })
 
+    // This is for the tiny popup that shows up on hovering the icon
     tray.setToolTip('Cadbury')
 
     // This is when the window is not in focus
@@ -52,15 +54,22 @@ function createWindow() {
         mainWindow.hide()
     })
 
+    // This is a global shortcut to activate Cadbury with hotkey(s)
+    globalShortcut.register('Cmd+j', () => {
+        // console.log('Electron loves global shortcuts!')
+        if (mainWindow.isVisible()) {
+            mainWindow.hide()
+        } else {
+            mainWindow.show()
+        }
+    })
+
 }
 
 
+// From boilerplate code
 app.whenReady().then(() => {
     createWindow()
-
-    app.on('activate', function () {
-        if (BrowserWindow.getAllWindows().length === 0) createWindow()
-    })
 })
 
 app.on('window-all-closed', function () {
