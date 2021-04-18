@@ -34,7 +34,7 @@ function createWindow() {
     // if (process.platform === 'win32') return 'icon-light.ico'
     // if (systemPreferences.isDarkMode()
     // return 'icon-dark.png'
-    tray = new Tray('assets/iconTemplate.png')
+    tray = new Tray('assets/TrayIcons/iconTemplate.png')
 
     // tray onClick event
     tray.on('click', () => {
