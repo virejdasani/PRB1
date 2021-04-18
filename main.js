@@ -25,10 +25,14 @@ function createWindow() {
         app.dock.hide()
     }
 
-    // To get different icons depending on the platform,first comment the new Tray line below, then do this:
+// To get different icons depending on the platform,first comment the new Tray line below, then do this:
     // const iconName = process.platform === win32 ? 'windowsIcon.png' : 'macIcon.png'
     // const iconPath = `assets/${iconName}`
     // new Tray(iconPath)
+// Also, if the menubar is in dark mode, we need an inverted icon like this:
+    // if (process.platform === 'win32') return 'icon-light.ico'
+    // if (systemPreferences.isDarkMode()
+    // return 'icon-dark.png'
     tray = new Tray('assets/iconTemplate.png')
 
     // tray onClick event
@@ -47,8 +51,6 @@ function createWindow() {
     mainWindow.on('blur', () => {
         mainWindow.hide()
     })
-
-    window.addEventListener('keyup', doSomething, true)
 
 }
 
