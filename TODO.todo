@@ -1,2 +1,4 @@
 - Add cadbury icons for mac and windows
 - Make it look a lot more like Alfred 
+- Make the input autofocus to directly start typing
+- make it hidden if esc is pressed
