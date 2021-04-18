@@ -4,7 +4,10 @@ const {
     BrowserWindow,
     Tray
 } = require('electron')
+
 const path = require('path')
+
+let tray
 
 function createWindow() {
     // Create the browser window.
@@ -12,18 +15,22 @@ function createWindow() {
         width: 350,
         height: 550,
         resizable: false,
-        frame: false
+        frame: false,
+        show: false
     })
 
     mainWindow.loadFile('index.html')
 
-    // This is the icon that shows up in the tray 
-    new Tray('assets/iconTemplate.png')
-
-// To get different icons depending on the platform,first comment the new Tray line above, then do this:
+    // To get different icons depending on the platform,first comment the new Tray line below, then do this:
     // const iconName = process.platform === win32 ? 'windowsIcon.png' : 'macIcon.png'
     // const iconPath = `assets/${iconName}`
     // new Tray(iconPath)
+    tray = new Tray('assets/iconTemplate.png')
+    
+    // tray onClick event
+    tray.on('click', () => {
+        mainWindow.show()
+    })
 
 }
 
